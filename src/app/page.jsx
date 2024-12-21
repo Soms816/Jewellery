@@ -1,9 +1,10 @@
 import React from 'react'
+import BigSlider from './comp/bigSlider'
 
 const page = () => {
   return (
     <>
-    hello
+    <BigSlider />
     </>
   )
 }
