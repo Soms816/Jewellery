@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const BigSlider = () => {
   const slides = [
@@ -19,6 +19,18 @@ const BigSlider = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Add auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(current => 
+        current === slides.length - 1 ? 0 : current + 1
+      );
+    }, 5000);
+
+    // Cleanup interval on component unmount 
+    return () => clearInterval(interval);
+  }, []);
+
   const prevSlide = () => {
     setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
   };
@@ -32,7 +44,7 @@ const BigSlider = () => {
   };
 
   return (
-    <div className="max-w-[1400px] h-[580px] w-full m-auto py-16 px-4 relative group">
+    <div className="max-w-[85%] h-[580px] w-full m-auto py-5 px-4 relative group">
       <div
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
