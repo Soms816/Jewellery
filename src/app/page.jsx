@@ -7,7 +7,7 @@ import JewelryCategories from "./comp/JewelryCategories";
 const page = () => {
   return (
     <div className="bg-Purple-400">
-      {/* <BigSlider /> */}
+      <BigSlider />
       <LivePrices />
       <CategoryListing />
       <JewelryCategories />
