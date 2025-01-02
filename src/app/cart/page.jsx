@@ -10,7 +10,7 @@ const page = () => {
   ];
 
   const [selectedItems, setSelectedItems] = useState([]);
-  const [taxRate] = useState(0.15); // Example tax rate (15%)
+  const [taxRate, setTaxRate] = useState(0.15); // Example tax rate (15%)
 
   // Handle item selection
   const handleItemSelect = (item) => {
